@@ -5,3 +5,4 @@
 * Animation 可控制子对象动画
 * Animation 内可通过 Curves 视图调整贝塞尔曲线和动画关键帧
 * Animation 内可在关键帧添加 Event 调用函数
+* 处理点击事件获取点击位置(Input.mousePosition)
