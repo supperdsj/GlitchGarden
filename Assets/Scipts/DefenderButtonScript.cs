@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DefenderButtonScript : MonoBehaviour
-{
+public class DefenderButtonScript : MonoBehaviour {
+    [SerializeField] DefenderScript defenderPrefab;
     void OnMouseDown() {
         var buttons = FindObjectsOfType<DefenderButtonScript>();
         foreach (DefenderButtonScript btn in buttons) {
@@ -13,6 +13,7 @@ public class DefenderButtonScript : MonoBehaviour
             }
             else {
                 GetComponent<SpriteRenderer>().color = Color.white;
+                FindObjectOfType<DefenderSpawnerScript>().setSelectedDefender(btn.defenderPrefab);
             }
         }
     }

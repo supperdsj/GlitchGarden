@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DefenderSpawnerScript : MonoBehaviour {
-    [SerializeField] GameObject defender;
+    DefenderScript defender;
     void OnMouseDown() {
         SpawnDefender(GetSquareClicked());
     }
 
     void SpawnDefender(Vector2 worldPos) {
-        GameObject newDefender = Instantiate(defender, worldPos, Quaternion.identity);
+        DefenderScript newDefender = Instantiate(defender, worldPos, Quaternion.identity);
     }
 
     Vector2 GetSquareClicked() {
@@ -24,5 +24,9 @@ public class DefenderSpawnerScript : MonoBehaviour {
         float newX = Mathf.RoundToInt(roundedPos.x);
         float newY= Mathf.RoundToInt(roundedPos.y);
         return new Vector2(newX,newY);
+    }
+
+    public void setSelectedDefender(DefenderScript defenderToSelect) {
+        defender = defenderToSelect;
     }
 }
