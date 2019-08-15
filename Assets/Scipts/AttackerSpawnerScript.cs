@@ -9,14 +9,14 @@ public class AttackerSpawnerScript : MonoBehaviour {
 
     IEnumerator Start() {
         while (spawn) {
-            yield return new WaitForSeconds(Random.Range(minSpawnDelay,maxSpawnDelay));
+            yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
             SpawnAttacker();
         }
     }
 
     void SpawnAttacker() {
-        Instantiate(attackerPrefab, transform.position, transform.rotation);
+        AttackerScript newAttacker = Instantiate(attackerPrefab, transform.position, transform.rotation);
+        // newAttacker.transform.parent = transform;
+        newAttacker.transform.SetParent(transform);
     }
-
-
 }
