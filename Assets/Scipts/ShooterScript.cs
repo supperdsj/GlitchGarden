@@ -5,7 +5,7 @@ using UnityEngine;
 public class ShooterScript : MonoBehaviour {
     [SerializeField] GameObject projectile,gun;
 
-    public void Fire(float damage) {
+    public void Fire() {
         Instantiate(projectile, gun.transform.position, gun.transform.rotation);
     }
 }

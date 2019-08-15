@@ -7,10 +7,10 @@ public class AttackerScript : MonoBehaviour {
     float currentSpeed = 0;
 
     void Update() {
-        transform.Translate(Vector2.left * currentSpeed* Time.deltaTime );
+        transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
     }
 
     public void SetMovementSpeed(float speed) {
-        currentSpeed = walkSpeed;
+        currentSpeed = speed * walkSpeed;
     }
 }
