@@ -22,9 +22,13 @@ public class StarDisplayScript : MonoBehaviour {
     }
 
     public void SpendStars(int starToSpend) {
-        if (stars >= starToSpend) {
+        if (HaveEnouthStars(starToSpend)) {
             stars -= starToSpend;
             UpdateDisplay();
         }
+    }
+
+    public bool HaveEnouthStars(int amount) {
+        return stars >= amount;
     }
 }

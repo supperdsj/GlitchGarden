@@ -10,4 +10,8 @@ public class DefenderScript : MonoBehaviour {
             FindObjectOfType<StarDisplayScript>().AddStars(starAmount);
         }
     }
+
+    public int GetStarCost() {
+        return starCost;
+    }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class DefenderSpawnerScript : MonoBehaviour {
     DefenderScript defender;
     void OnMouseDown() {
-        SpawnDefender(GetSquareClicked());
+        AttemptToPlaceDefenderAt(GetSquareClicked());
     }
 
     void SpawnDefender(Vector2 worldPos) {
@@ -28,5 +28,14 @@ public class DefenderSpawnerScript : MonoBehaviour {
 
     public void setSelectedDefender(DefenderScript defenderToSelect) {
         defender = defenderToSelect;
+    }
+
+    public void AttemptToPlaceDefenderAt(Vector2 gridPos) {
+        var StarDisplay = FindObjectOfType<StarDisplayScript>();
+        int defenderCost = defender.GetStarCost();
+        if (StarDisplay.HaveEnouthStars(defenderCost)) {
+            SpawnDefender(gridPos);
+            StarDisplay.SpendStars(defenderCost);
+        }
     }
 }
