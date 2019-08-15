@@ -5,6 +5,7 @@ using UnityEngine;
 public class AttackerScript : MonoBehaviour {
     [Range(0.2f, 5f)] [SerializeField] float walkSpeed = 1f;
     float currentSpeed = 0;
+    GameObject currentTarget;
 
     void Update() {
         transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);
@@ -12,5 +13,10 @@ public class AttackerScript : MonoBehaviour {
 
     public void SetMovementSpeed(float speed) {
         currentSpeed = speed * walkSpeed;
+    }
+
+    public void Attack(GameObject target) {
+        GetComponent<Animator>().SetBool("isAttacking",true);
+        currentTarget = target;
     }
 }
