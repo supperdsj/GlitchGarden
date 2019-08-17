@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,14 @@ public class AttackerScript : MonoBehaviour {
     [SerializeField] int damage = 10;
     float currentSpeed = 0;
     GameObject currentTarget;
+
+    void Awake() {
+        FindObjectOfType<LevelControllerScript>().AttackerSpawned();
+    }
+
+    void OnDestroy() {
+        FindObjectOfType<LevelControllerScript>().AttackerKilled();
+    }
 
     void Update() {
         transform.Translate(Vector2.left * currentSpeed * Time.deltaTime);

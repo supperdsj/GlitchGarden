@@ -14,6 +14,9 @@ public class AttackerSpawnerScript : MonoBehaviour {
         }
     }
 
+    public void StopSpawning() {
+        spawn = false;
+    }
     void Spawn(AttackerScript myAttacker) {
         AttackerScript newAttacker = Instantiate(myAttacker, transform.position, transform.rotation);
         // newAttacker.transform.parent = transform;

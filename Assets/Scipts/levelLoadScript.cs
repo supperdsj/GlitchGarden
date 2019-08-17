@@ -8,7 +8,7 @@ public class LevelLoadScript : MonoBehaviour {
 
     void Start() {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(currentSceneIndex);
+        // Debug.Log(currentSceneIndex);
         if (currentSceneIndex == 0) {
             StartCoroutine(WaitForTimeToLoadNextScene(4));
         }
