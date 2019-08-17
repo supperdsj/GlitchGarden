@@ -8,3 +8,4 @@
 * 处理点击事件获取点击位置(Input.mousePosition)
 * obj.transform.parent = transform; 修改obj父对象为自身
 * 利用 Mathf.Epsilon 判断两个浮点数近乎相同
+* 使用 Trigger 触发动画

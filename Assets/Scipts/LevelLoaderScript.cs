@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelLoadScript : MonoBehaviour {
+public class LevelLoaderScript : MonoBehaviour {
     int currentSceneIndex;
 
     void Start() {

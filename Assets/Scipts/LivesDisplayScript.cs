@@ -22,7 +22,7 @@ public class LivesDisplayScript : MonoBehaviour {
         lives -= damage;
         UpdateDisplay();
         if (lives <= 0) {
-            FindObjectOfType<LevelLoadScript>().LoadYouLose();
+            FindObjectOfType<LevelLoaderScript>().LoadYouLose();
         }
     }
 }
