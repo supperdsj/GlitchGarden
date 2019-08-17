@@ -11,8 +11,13 @@ public class LevelControllerScript : MonoBehaviour {
     bool levelTimerFinished = false;
 
     void Start() {
-        winLabel.SetActive(false);
-        loseLabel.SetActive(false);
+        if (winLabel) {
+            winLabel.SetActive(false);
+        }
+
+        if (loseLabel) {
+            loseLabel.SetActive(false);
+        }
     }
 
     public void AttackerSpawned() {
@@ -32,8 +37,10 @@ public class LevelControllerScript : MonoBehaviour {
         yield return new WaitForSeconds(waitToLoad);
         FindObjectOfType<LevelLoaderScript>().LoadNextScene();
     }
+
     public void HandleLoseCondition() {
         loseLabel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void LevelTimerFinished() {

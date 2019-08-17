@@ -20,15 +20,27 @@ public class LevelLoaderScript : MonoBehaviour {
     }
 
     public void LoadNextScene() {
+        Time.timeScale = 1;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
+    public void StartGame() {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Level 1");
+    }
     public void LoadYouLose() {
+        Time.timeScale = 1;
         SceneManager.LoadScene("LoseScreen");
     }
     public void LoadMainMenu() {
+        Time.timeScale = 1;
         SceneManager.LoadScene("StartScreen");
     }
     public void RestartScene() {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void QuitGame() {
+        Application.Quit();
     }
 }
