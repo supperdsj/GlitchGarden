@@ -25,4 +25,10 @@ public class LevelLoaderScript : MonoBehaviour {
     public void LoadYouLose() {
         SceneManager.LoadScene("LoseScreen");
     }
+    public void LoadMainMenu() {
+        SceneManager.LoadScene("StartScreen");
+    }
+    public void RestartScene() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

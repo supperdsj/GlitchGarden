@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DefenderSpawnerScript : MonoBehaviour {
     DefenderScript defender;
+
     void OnMouseDown() {
         AttemptToPlaceDefenderAt(GetSquareClicked());
     }
@@ -14,7 +15,7 @@ public class DefenderSpawnerScript : MonoBehaviour {
     }
 
     Vector2 GetSquareClicked() {
-        Vector2 clickPos=new Vector2(Input.mousePosition.x,Input.mousePosition.y);
+        Vector2 clickPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 worldPos = Camera.main.ScreenToWorldPoint(clickPos);
         Vector2 gridPos = SnapToGrid(worldPos);
         return gridPos;
@@ -22,8 +23,8 @@ public class DefenderSpawnerScript : MonoBehaviour {
 
     Vector2 SnapToGrid(Vector2 roundedPos) {
         float newX = Mathf.RoundToInt(roundedPos.x);
-        float newY= Mathf.RoundToInt(roundedPos.y);
-        return new Vector2(newX,newY);
+        float newY = Mathf.RoundToInt(roundedPos.y);
+        return new Vector2(newX, newY);
     }
 
     public void setSelectedDefender(DefenderScript defenderToSelect) {
@@ -32,10 +33,12 @@ public class DefenderSpawnerScript : MonoBehaviour {
 
     public void AttemptToPlaceDefenderAt(Vector2 gridPos) {
         var StarDisplay = FindObjectOfType<StarDisplayScript>();
-        int defenderCost = defender.GetStarCost();
-        if (StarDisplay.HaveEnouthStars(defenderCost)) {
-            SpawnDefender(gridPos);
-            StarDisplay.SpendStars(defenderCost);
+        if (defender) {
+            int defenderCost = defender.GetStarCost();
+            if (StarDisplay.HaveEnouthStars(defenderCost)) {
+                SpawnDefender(gridPos);
+                StarDisplay.SpendStars(defenderCost);
+            }
         }
     }
 }
