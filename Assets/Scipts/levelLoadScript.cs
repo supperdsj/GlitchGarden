@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class levelLoadScript : MonoBehaviour {
+public class LevelLoadScript : MonoBehaviour {
     int currentSceneIndex;
 
     void Start() {
@@ -21,5 +21,8 @@ public class levelLoadScript : MonoBehaviour {
 
     public void LoadNextScene() {
         SceneManager.LoadScene(currentSceneIndex + 1);
+    }
+    public void LoadYouLose() {
+        SceneManager.LoadScene("LoseScreen");
     }
 }
